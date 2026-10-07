@@ -1,17 +1,20 @@
 {
-  "name": "registraion-qa-code",
+  "name": "registration-qr",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Smart Event Registration and Contactless Check-in QR Portal",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dev-server.js",
+    "dev": "node dev-server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "keywords": [
+    "qr-code",
+    "event-registration",
+    "badge-generator",
+    "check-in"
+  ],
+  "author": "Anil Singh",
+  "license": "MIT",
   "dependencies": {
-    "davidshimjs-qrcodejs": "^0.0.2",
     "qrcode": "^1.5.4"
   }
 }

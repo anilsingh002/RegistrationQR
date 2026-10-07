@@ -41,7 +41,8 @@ Simply double-click `index.html` or open it in any modern browser (Chrome, Edge,
 
 ### Option 2: Run with Local Server
 ```bash
-node server.js
+npm start
+# or: node dev-server.js
 ```
 Then visit:
 ```
