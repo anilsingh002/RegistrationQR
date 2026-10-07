@@ -210,8 +210,12 @@
       }
 
       const storedTheme = localStorage.getItem(THEME_KEY);
+      const metaTheme = document.getElementById('metaThemeColor');
       if (storedTheme === 'light') {
         document.body.classList.add('light-theme');
+        if (metaTheme) metaTheme.setAttribute('content', '#f8fafc');
+      } else {
+        if (metaTheme) metaTheme.setAttribute('content', '#0b0f19');
       }
     } catch (e) {
       console.warn('Storage read error:', e);
@@ -547,12 +551,12 @@
             </button>
           </td>
           <td>
-            <div style="display: flex; gap: 0.35rem;">
-              <button type="button" class="icon-btn" data-action="viewPass" data-id="${a.id}" title="View E-Badge" style="width: 28px; height: 28px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <div style="display: flex; gap: 0.4rem;">
+              <button type="button" class="icon-btn" data-action="viewPass" data-id="${a.id}" title="View E-Badge" style="width: 34px; height: 34px; min-width: 34px;" aria-label="View E-Badge for ${escapeHtml(a.fullName)}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
               </button>
-              <button type="button" class="icon-btn" data-action="delete" data-id="${a.id}" title="Remove entry" style="width: 28px; height: 28px; color: var(--danger);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              <button type="button" class="icon-btn" data-action="delete" data-id="${a.id}" title="Remove entry" style="width: 34px; height: 34px; min-width: 34px; color: var(--danger);" aria-label="Delete registration for ${escapeHtml(a.fullName)}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
               </button>
             </div>
           </td>
@@ -710,6 +714,8 @@
     elements.themeToggleBtn.addEventListener('click', () => {
       const isLight = document.body.classList.toggle('light-theme');
       localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
+      const metaTheme = document.getElementById('metaThemeColor');
+      if (metaTheme) metaTheme.setAttribute('content', isLight ? '#f8fafc' : '#0b0f19');
       showToast(isLight ? 'Light theme activated' : 'Dark theme activated', 'info');
     });
 
