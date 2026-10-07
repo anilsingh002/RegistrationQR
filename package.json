@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Smart Event Registration and Contactless Check-in QR Portal",
   "scripts": {
-    "build": "node -e \"console.log('Static site build completed')\"",
+    "build": "node build.js",
     "start": "node dev-server.js",
     "dev": "node dev-server.js"
   },
