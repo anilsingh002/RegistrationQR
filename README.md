@@ -2,6 +2,8 @@
 
 A modern, responsive, and contactless Event Registration and Check-in web application with real-time QR code generation, attendee pass issuance, and organizer management tools.
 
+🌐 **Live Production URL**: [https://registration-qr-phi.vercel.app](https://registration-qr-phi.vercel.app)
+
 ---
 
 ## 🌟 Key Features
